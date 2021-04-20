@@ -53,17 +53,17 @@ export const MedGenUno = ({ navigation }:Props) => {
         return (
             <View style={{
                 flex:1,
-                backgroundColor: 'white',
+                backgroundColor: 'red',
                 borderRadius: 5,
-                padding: 5,
+                padding: 3,
                 justifyContent:'center',
             }}>
             <Image
                 source={item.img}
                 style={{
-                    width:350,
-                    height:400,
-                    resizeMode:'center',
+                    width:600,
+                    height:250,
+                    resizeMode:'cover',
                 }}
             />
             </View>

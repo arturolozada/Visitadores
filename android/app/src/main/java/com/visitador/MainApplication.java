@@ -1,5 +1,7 @@
 package com.visitador;
-
+// nuevo para splash
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+// nuevo para splash
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;

@@ -1,8 +1,12 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, { useEffect } from 'react';
 import {FlatList, Text,View} from 'react-native';
+//nuevo para splash
+import SplashScreen from 'react-native-splash-screen';
+
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { styles } from '../theme/appTheme';
 import { FlatListMenuItem } from '../components/FlatListMenuItem';
@@ -32,6 +36,10 @@ export const HomeVisitador = () => {
       />
       );
   };
+
+  useEffect(() => {
+    SplashScreen.hide();    
+  }, []);
 
   return (
     <View style={{flex:1, ...styles.globalMargin}}>

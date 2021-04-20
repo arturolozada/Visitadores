@@ -188,6 +188,9 @@ android {
 }
 
 dependencies {
+    // nuevo para splash
+    implementation project(':react-native-splash-screen')
+    // nuevo para splash
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
