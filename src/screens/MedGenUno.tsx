@@ -1,17 +1,20 @@
+/* eslint-disable eol-last */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable comma-dangle */
 /* eslint-disable prettier/prettier */
 import { StackScreenProps } from '@react-navigation/stack';
 import React, { useState, useRef } from 'react';
-import { Dimensions, Image, View, ImageSourcePropType, SafeAreaView, TouchableOpacity, Text, Animated } from 'react-native';
-import Carousel,{Pagination} from 'react-native-snap-carousel';
+import { Dimensions, Image, View, ImageSourcePropType, SafeAreaView, TouchableOpacity, Text, Animated, StyleSheet } from 'react-native';
+import Carousel,{ Pagination } from 'react-native-snap-carousel';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useAnimation } from '../hooks/useAnimation';
 
 
-const {width:sliderWidth} = Dimensions.get('window');
 
+const {height:sliderHeight, width:sliderWidth} = Dimensions.get('window');
+// console.log(sliderWidth);
+// console.log(sliderHeight);
 interface Slide {
     title: string;
     desc: string;
@@ -22,22 +25,22 @@ const items: Slide[] = [
     {
         title: 'Artrinal',
         desc: 'Ea et eu enim fugiat sunt reprehenderit sunt aute quis tempor ipsum cupidatat et.',
-        img: require('../assets/mg1-pagina1.jpg')
+        img: require('../assets/Atrinal1.png')
     },
     {
         title: 'Artrinal',
         desc: 'Anim est quis elit proident magna quis cupidatat culpa labore Lorem ea. Exercitation mollit velit in aliquip tempor occaecat dolor minim amet dolor enim cillum excepteur. ',
-        img: require('../assets/mg1-pagina2.jpg')
+        img: require('../assets/Atrinal2.png')
     },
     {
         title: 'Artrinal',
         desc: 'Ex amet duis amet nulla. Aliquip ea Lorem ea culpa consequat proident. Nulla tempor esse ad tempor sit amet Lorem. Velit ea labore aute pariatur commodo duis veniam enim.',
-        img: require('../assets/mg1-pagina3.jpg')
+        img: require('../assets/Atrinal3.png')
     },
     {
         title: 'Artrinal',
         desc: 'Ex amet duis amet nulla. Aliquip ea Lorem ea culpa consequat proident. Nulla tempor esse ad tempor sit amet Lorem. Velit ea labore aute pariatur commodo duis veniam enim.',
-        img: require('../assets/mg1-pagina4.jpg')
+        img: require('../assets/Atrinal4.png')
     },
 ];
 
@@ -53,19 +56,23 @@ export const MedGenUno = ({ navigation }:Props) => {
         return (
             <View style={{
                 flex:1,
-                backgroundColor: 'red',
-                borderRadius: 5,
-                padding: 3,
+                backgroundColor: 'white',
+                borderRadius: 20,
+                padding: 5,
                 justifyContent:'center',
+                alignItems: 'center',
             }}>
-            <Image
-                source={item.img}
-                style={{
-                    width:600,
-                    height:250,
-                    resizeMode:'cover',
-                }}
-            />
+                <Image
+                    source={item.img}
+                    style={{
+                        flex: 1,
+                        marginTop:10,
+                        width:500,
+                        height:200,
+                        resizeMode:'cover',
+                        //...StyleSheet.absoluteFillObject,
+                    }}
+                />
             </View>
         );
     };
@@ -74,15 +81,17 @@ export const MedGenUno = ({ navigation }:Props) => {
         <SafeAreaView
             style={{
                 flex:1,
-                paddingTop: 50,
+                paddingTop: 10,
         }}>
             <Carousel
                 //ref={(c) => { this._carousel = c; }}
                 data={items}
                 renderItem={({item}:any) => renderItem(item)}
-                sliderWidth={sliderWidth}
-                itemWidth={sliderWidth}
-                layout="default"
+                sliderWidth={ sliderWidth }
+                sliderHeight={sliderHeight}
+                itemWidth={ sliderWidth }
+                layout="tinder"
+                layoutCardOffset={4}
                 onSnapToItem= {(index) => {
                     setActiveIndex(index);
                     if ( index === 3 ) {
@@ -103,8 +112,8 @@ export const MedGenUno = ({ navigation }:Props) => {
                     dotsLength={items.length}
                     activeDotIndex={activeIndex}
                     dotStyle={{
-                        width:10,
-                        height:10,
+                        width:7,
+                        height:7,
                         borderRadius:10,
                         backgroundColor: '#5856d6'
                     }}

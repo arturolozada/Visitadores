@@ -5,7 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {HomeVisitador} from '../screens/HomeVisitador';
 import { MedGenUno } from '../screens/MedGenUno';
 import { MedGenDos } from '../screens/MedGenDos';
-import { MedInternista } from '../screens/MedInterno';
+import { MedInterno } from '../screens/MedInterno';
 import { MedPediatra } from '../screens/MedPediatra';
 import { MedOrtopedia } from '../screens/MedOrtopedia';
 
@@ -21,7 +21,7 @@ export const Navigator = () => {
       <Stack.Screen name="HomeVisitador" component={HomeVisitador} />
       <Stack.Screen name="MedGenUno" component={MedGenUno} />
       <Stack.Screen name="MedGenDos" component={MedGenDos} />
-      <Stack.Screen name="MedInterno" component={MedInternista} />
+      <Stack.Screen name="MedInterno" component={MedInterno} />
       <Stack.Screen name="MedPediatra" component={MedPediatra} />
       <Stack.Screen name="MedOrtopedia" component={MedOrtopedia} />
     </Stack.Navigator>

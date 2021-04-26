@@ -3,7 +3,7 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
-import {FlatList, Text,View} from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 //nuevo para splash
 import SplashScreen from 'react-native-splash-screen';
 
@@ -11,6 +11,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { styles } from '../theme/appTheme';
 import { FlatListMenuItem } from '../components/FlatListMenuItem';
 import { menuItems } from '../data/menuItems';
+//import { Fab } from '../components/Fab';
 
 
 export const HomeVisitador = () => {
@@ -21,7 +22,7 @@ export const HomeVisitador = () => {
     return (
       <View style={{marginTop: top + 20, marginBottom: 20}}>
         <Text style={styles.title}>Opciones</Text>
-      </View>
+      </View>      
     );
   };
   
@@ -42,15 +43,17 @@ export const HomeVisitador = () => {
   }, []);
 
   return (
-    <View style={{flex:1, ...styles.globalMargin}}>
+    <>
+        <View style={{flex:1, ...styles.globalMargin}}>
 
-      <FlatList
-        data={menuItems}
-        renderItem={ ({item}) => <FlatListMenuItem menuItem={item} /> }
-        keyExtractor={(item) => item.name}
-        ListHeaderComponent={ rendetListHeader }
-        ItemSeparatorComponent={ itemSeparator }
-      />
-    </View>
+          <FlatList
+            data={menuItems}
+            renderItem={ ({item}) => <FlatListMenuItem menuItem={item} /> }
+            keyExtractor={(item) => item.name}
+            ListHeaderComponent={ rendetListHeader }
+            ItemSeparatorComponent={ itemSeparator }
+          />
+        </View>
+    </>
   ); 
 };
