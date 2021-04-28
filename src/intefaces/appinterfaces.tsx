@@ -2,7 +2,7 @@
 
 
 export interface MenuItem {
-    name: string;
-    icon: string;
-    component: string;
-  }
+  name: string;
+  icon: string;
+  component: string;
+}

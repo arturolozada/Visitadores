@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 
 export const styles = StyleSheet.create({
@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
         marginHorizontal: 20,
     },
     title: {
-        fontSize: 35,
+        fontSize: 25,
         fontWeight: 'bold',
     },
 });
+

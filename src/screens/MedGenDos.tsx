@@ -5,12 +5,12 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React, { useState, useRef } from 'react';
 import { Dimensions, Image, View, ImageSourcePropType, SafeAreaView, TouchableOpacity, Text, Animated } from 'react-native';
-import Carousel,{ Pagination } from 'react-native-snap-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useAnimation } from '../hooks/useAnimation';
 
 
-const {height:sliderHeight, width:sliderWidth} = Dimensions.get('window');
+const { width: sliderWidth, height: sliderHeight } = Dimensions.get('window');
 
 interface Slide {
     title: string;
@@ -20,54 +20,50 @@ interface Slide {
 
 const items: Slide[] = [
     {
-        title: 'Artrinal',
+        title: 'VASTORFIT',
         desc: 'Ea et eu enim fugiat sunt reprehenderit sunt aute quis tempor ipsum cupidatat et.',
-        img: require('../assets/CORTIDEXAN1.png')
+        img: require('../assets/VASTORFIT1.png')
     },
     {
-        title: 'Artrinal',
+        title: 'VASTORFIT',
         desc: 'Anim est quis elit proident magna quis cupidatat culpa labore Lorem ea. Exercitation mollit velit in aliquip tempor occaecat dolor minim amet dolor enim cillum excepteur. ',
-        img: require('../assets/CORTIDEXAN2.png')
+        img: require('../assets/VASTORFIT2.png')
     },
     {
-        title: 'Artrinal',
+        title: 'VASTORFIT',
         desc: 'Ex amet duis amet nulla. Aliquip ea Lorem ea culpa consequat proident. Nulla tempor esse ad tempor sit amet Lorem. Velit ea labore aute pariatur commodo duis veniam enim.',
-        img: require('../assets/CORTIDEXAN3.png')
+        img: require('../assets/VASTORFIT3.png')
     },
     {
-        title: 'Artrinal',
+        title: 'VASTORFIT',
         desc: 'Ex amet duis amet nulla. Aliquip ea Lorem ea culpa consequat proident. Nulla tempor esse ad tempor sit amet Lorem. Velit ea labore aute pariatur commodo duis veniam enim.',
-        img: require('../assets/CORTIDEXAN4.png')
+        img: require('../assets/VASTORFIT4.png')
     },
 ];
 
-interface Props extends  StackScreenProps<any, any> {}
+interface Props extends StackScreenProps<any, any> { }
 
-export const MedGenDos = ({ navigation }:Props) => {
+export const MedGenDos = ({ navigation }: Props) => {
 
-    const [activeIndex,setActiveIndex] = useState(0);
-    const {opacity,fadeIn} = useAnimation();
+    const [activeIndex, setActiveIndex] = useState(0);
+    const { opacity, fadeIn } = useAnimation();
     const isVisible = useRef(false);
 
     const renderItem = (item: Slide) => {
         return (
             <View style={{
-                flex:1,
+                flex: 1,
                 backgroundColor: 'white',
-                borderRadius: 20,
-                padding: 5,
-                justifyContent:'center',
-                alignItems: 'center',
+                borderRadius: 10,
+                padding: 10,
+                justifyContent: 'center',
             }}>
                 <Image
                     source={item.img}
                     style={{
-                        flex: 1,
-                        marginTop:5,
-                        width:500,
-                        height:190,
-                        resizeMode:'cover',
-                        //...StyleSheet.absoluteFillObject,
+                        width: 600,
+                        height: 250,
+                        resizeMode: 'stretch',
                     }}
                 />
             </View>
@@ -77,42 +73,42 @@ export const MedGenDos = ({ navigation }:Props) => {
     return (
         <SafeAreaView
             style={{
-                flex:1,
+                flex: 1,
                 paddingTop: 10,
-        }}>
+            }}>
             <Carousel
                 //ref={(c) => { this._carousel = c; }}
                 data={items}
-                renderItem={({item}:any) => renderItem(item)}
-                sliderWidth={ sliderWidth }
-                sliderHeight={sliderHeight}
-                itemWidth={ sliderWidth }
+                renderItem={({ item }: any) => renderItem(item)}
+                sliderWidth={sliderWidth}
+                itemWidth={sliderWidth}
                 layout="tinder"
-                layoutCardOffset={4}
-                onSnapToItem= {(index) => {
+                onSnapToItem={(index) => {
                     setActiveIndex(index);
-                    if ( index === 3 ) {
-                        isVisible.current = true;
-                        fadeIn();
-                        }
+                    isVisible.current = true;
+                    fadeIn();
+                    // if (index === 3) {
+                    //     isVisible.current = true;
+                    //     fadeIn();
+                    // }
                 }}
             />
 
             <View style={{
                 flexDirection: 'row',
-                justifyContent:'space-between',
-                marginHorizontal:20,
-                alignItems:'center'
-                }}>
+                justifyContent: 'space-between',
+                marginHorizontal: 20,
+                alignItems: 'center'
+            }}>
 
                 <Pagination
                     dotsLength={items.length}
                     activeDotIndex={activeIndex}
                     dotStyle={{
-                        width:7,
-                        height:7,
-                        borderRadius:10,
-                        backgroundColor: '#5856d6'
+                        width: 10,
+                        height: 10,
+                        borderRadius: 10,
+                        backgroundColor: '#049DD9'
                     }}
                 />
 
@@ -121,20 +117,22 @@ export const MedGenDos = ({ navigation }:Props) => {
                         opacity
                     }}>
                     <TouchableOpacity style={{
-                            flexDirection:'row',
-                            backgroundColor: '#5856d6',
-                            width: 140,
-                            height: 50,
-                            borderRadius: 10,
-                            justifyContent: 'center',
-                            alignItems:'center',}}
+                        flexDirection: 'row',
+                        backgroundColor: '#049DD9',
+                        width: 140,
+                        height: 50,
+                        borderRadius: 10,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
                         activeOpacity={0.8}
-                        onPress={ () => {
-                            if ( isVisible.current ) {
+                        onPress={() => {
+                            if (isVisible.current) {
                                 navigation.navigate('HomeVisitador');
-                            }}}
+                            }
+                        }}
                     >
-                        <Text style={{fontSize:25,color:'white'}}>
+                        <Text style={{ fontSize: 25, color: 'white' }}>
                             Menú
                         </Text>
                         <Icon
